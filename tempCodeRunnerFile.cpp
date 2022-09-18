@@ -1,2 +1,2 @@
 
- tree* root=new tree(1);
+    queue<tree*> q;
