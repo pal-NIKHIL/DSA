@@ -1,0 +1,1 @@
+{"name":"Local: cccc","url":"c:\\Users\\naveen\\Desktop\\DSA\\cccc.cpp","tests":[{"id":1662571146587,"input":"3\n4\n4 1 3 2\n2\n3 1\n9\n5 2 9 1 8 6 4 3 7\n3\n5 8 9\n5\n3 4 5 1 2\n2\n2 3","output":"4 2\n2 1 6 4 3 7\n4 5 1"}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"c:\\Users\\naveen\\Desktop\\DSA\\cccc.cpp","group":"local","local":true}

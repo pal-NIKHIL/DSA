@@ -1,0 +1,1 @@
+{"name":"Local: kikstar","url":"c:\\Users\\naveen\\Desktop\\DSA\\kikstar.cpp","tests":[{"id":1661058183322,"input":"3\n4\nabba\n4\ncccc\n6\ncdccdc","output":"Case #1: abba\nCase #2: c\nCase #3: cdc"}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"c:\\Users\\naveen\\Desktop\\DSA\\kikstar.cpp","group":"local","local":true}
