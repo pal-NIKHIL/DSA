@@ -295,6 +295,43 @@ void left_view(tree *root)
         }
     }
 }
+    bool ishelp(tree *left,tree *right){
+        if(left==NULL || right==NULL){
+            if(right==left) return true;
+        }
+        if(left->data!=right->data) return false;
+        return ishelp(left->left_child,right->right_child) && ishelp(left->right_child,right->left_child);
+    }
+ bool isSymmetric(tree* root) {
+        if(root==NULL) return true;
+        return ishelp(root->left_child,root->right_child);
+    }
+
+void flatten(tree * root){
+    if(root==NULL || (root->left_child==NULL && root->right_child==NULL)) return;
+    if(root->left_child!=NULL){
+        flatten(root->left_child);
+        tree *temp=root->right_child;
+        root->right_child=root->left_child;
+        root->left_child=NULL;
+        tree *t=root->right_child;
+        while(t->right_child!=NULL){
+            t=t->right_child;
+        }
+        t->right_child=temp;
+        
+    }
+    flatten(root->right_child);
+}
+ tree* lowestCommonAncestor(tree* root, tree* p, tree* q) {
+        if(root==NULL) return NULL;
+        if(p->data==root->data || q->data==root->data) return root;
+        tree *left=lowestCommonAncestor(root->left_child,p,q);
+        tree *right=lowestCommonAncestor(root->right_child,p,q);
+        if(left==NULL) return right;
+        if(right==NULL) return left;
+        return root;
+    }
 int main()
 {
     //              1
@@ -302,10 +339,7 @@ int main()
     //           2      3
     //         /  \    /  \
     //        4    5  6    7
-    //               /
-    //              8
-    //             /
-    //            9
+
     tree *root = new tree(1);
     root->left_child = new tree(2);
     root->right_child = new tree(3);
@@ -313,9 +347,8 @@ int main()
     root->left_child->right_child = new tree(5);
     root->right_child->left_child = new tree(6);
     root->right_child->right_child = new tree(7);
-    root->right_child->left_child->left_child = new tree(8);
-    root->right_child->left_child->left_child->left_child = new tree(9);
-    
+    flatten(root);
+    levelorder(root);
     //left_view(root);
     // isbalanced(root)?cout<<"BALANCED":cout<<"NOT";
     // sumreplacement(root);
